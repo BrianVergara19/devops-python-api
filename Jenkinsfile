@@ -17,7 +17,7 @@ pipeline {
 
         stage('Ejecutar tests') {
             steps {
-                bat 'pytest tests'
+                bat 'set PYTHONPATH=%cd% && pytest tests'
             }
         }
 
