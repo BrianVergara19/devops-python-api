@@ -10,26 +10,26 @@ pipeline {
 
         stage('Instalar dependencias') {
             steps {
-                sh 'pip install --upgrade pip'
-                sh 'pip install -r requirements.txt'
+                bat 'python -m pip install --upgrade pip'
+                bat 'pip install -r requirements.txt'
             }
         }
 
         stage('Ejecutar tests') {
             steps {
-                sh 'pytest tests'
+                bat 'pytest tests'
             }
         }
 
         stage('Construir imagen Docker') {
             steps {
-                sh 'docker build -t devops-python-api .'
+                bat 'docker build -t devops-python-api .'
             }
         }
 
         stage('Ejecutar imagen local (opcional)') {
             steps {
-                sh 'docker run -d -p 8000:8000 devops-python-api'
+                bat 'docker run -d -p 8000:8000 devops-python-api'
             }
         }
     }
