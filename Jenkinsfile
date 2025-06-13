@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clonar repositorio') {
             steps {
-                git 'https://github.com/BrianVergara19/devops-python-api.git'
+                git branch: 'main', url: 'https://github.com/BrianVergara19/devops-python-api.git'
             }
         }
 
